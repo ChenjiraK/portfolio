@@ -18,9 +18,15 @@ module.exports = {
         'gray-707070': '#707070',
         'gray-BBC2C0': '#BBC2C0',
 
-        'primary': "#243831",
+        'primary': "#EEE",
         'success': "#49A569",
-        'green-2B5F44': "#2B5F44"
+        'green-2B5F44': "#2B5F44",
+        // theme
+        'theme-com7': "#008900",
+        'theme-buzzebees': "#f9a601",
+        'theme-scg': "#e50019",
+        'theme-ssup': "#00afaa",
+        'theme-kisra': "#fde403",
       },
       width: {
         '200px': '200px',
@@ -56,9 +62,10 @@ module.exports = {
         'main': '0px 2px 10px rgba(0, 0, 0, 0.08)',
       },
       fontFamily: {
-        main: ["main"],
+        main: ["Roboto Mono"],
     },
     fontSize: {
+        '7px': '7px',
         10: ["0.625rem", "1.2"],
         12: ["0.75rem", "1.2"],
         14: ["0.875rem", "1.2"],
