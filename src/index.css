@@ -3,7 +3,7 @@
 @tailwind utilities;
 body {
   margin: 0;
-  font-family: 'main';
+  font-family: "Roboto Mono", serif;
   color: #383131;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,4 +18,10 @@ code {
 }
 :focus {
   outline: none;
+}
+p, span {
+  color: #8e8d8d;
+}
+b {
+  color: black;
 }

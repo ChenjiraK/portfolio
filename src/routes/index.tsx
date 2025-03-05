@@ -2,10 +2,15 @@ import React, { useEffect } from 'react';
 import { useRoutes, useLocation, RouteObject } from 'react-router-dom';
 /** pages */
 import Home from '../pages/Home.tsx';
+import Test from '../pages/Test.tsx';
 const routes: RouteObject[] = [
   {
     path: '/',
     element: <Home />,
+  },
+  {
+    path: '/test',
+    element: <Test />,
   },
 ];
 
