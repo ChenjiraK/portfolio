@@ -6,6 +6,7 @@ type ExperienceItem = {
   company: string;
   position: string;
   feature: string[];
+  detail: string;
 };
 
 const Experience: React.FC<{ experiences: ExperienceItem[] }> = ({ experiences }) => (
@@ -15,12 +16,15 @@ const Experience: React.FC<{ experiences: ExperienceItem[] }> = ({ experiences }
         <li data-reveal key={experience.company}>
           <div className="group relative grid gap-4 rounded-2xl border border-black/10 bg-white/40 p-6 transition-colors duration-300 hover:border-green-2B5F44/30 hover:bg-white/70 md:grid-cols-[220px_1fr] md:gap-8 md:p-8 motion-reduce:transition-none">
             <div className="flex items-center gap-3 text-xs text-black/50">
-              <span aria-hidden="true" className={`h-2 w-2 shrink-0 rounded-full ${index === 0 ? 'bg-green-2B5F44' : 'bg-black/20'}`} />
+              <span aria-hidden="true" className={`h-2 w-2 shrink-0 rounded-full bg-green-2B5F44`} />
               {experience.start}{experience.end ? ` — ${experience.end}` : ''}
             </div>
             <div>
               <h3 className="!text-base !font-medium !leading-6">{experience.company}</h3>
               <p className="mt-2">{experience.position}</p>
+              <p className='pt-4 !text-gray-600'>
+                {experience.detail}
+              </p>
             </div>
           </div>
         </li>

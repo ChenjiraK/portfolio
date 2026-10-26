@@ -47,7 +47,7 @@ const Home: React.FC = () => {
           imageUrl: require('../assets/icon/nuxt.webp')
         },
         {
-          name: 'React.js',
+          name: 'React.js, Next.js',
           imageUrl:  require('../assets/icon/react.webp')
         },
         {
@@ -73,6 +73,10 @@ const Home: React.FC = () => {
       ],
       backend: [
         {
+          name: 'Golang (GIN, GORM)',
+          imageUrl: require('../assets/icon/golang.webp')
+        },
+        {
           name: 'Node.js (Express, SOCKET.IO)',
           imageUrl: require('../assets/icon/node.webp')
         },
@@ -83,6 +87,28 @@ const Home: React.FC = () => {
         {
           name: 'PHP (Laravel Framework) (API)',
           imageUrl: require('../assets/icon/laravel.webp')
+        }
+      ],
+      cloud: [
+        {
+          name: 'Docker',
+          imageUrl: require('../assets/icon/docker.webp')
+        },
+        {
+          name: 'Kubernetes',
+          imageUrl: require('../assets/icon/kubernetes.webp')
+        },
+        {
+          name: 'Argo CD',
+          imageUrl: require('../assets/icon/argo.webp')
+        },
+        {
+          name: 'Huawei Cloud',
+          imageUrl: require('../assets/icon/huawei.webp')
+        },
+        {
+          name: 'Kibana',
+          imageUrl: require('../assets/icon/kibana.webp')
         }
       ],
       testing: [
@@ -98,11 +124,19 @@ const Home: React.FC = () => {
           name: 'Cypress (Automate test)',
           imageUrl: require('../assets/icon/cypress.webp')
         },
+        {
+          name: 'Playwright (Automate test)',
+          imageUrl: require('../assets/icon/playwright.webp')
+        },
       ],
       database: [
         {
           name: 'MySQL Database',
           imageUrl: require('../assets/icon/mysql.webp')
+        },
+        {
+          name: 'PostgreSQL Database',
+          imageUrl: require('../assets/icon/postgresql.webp')
         },
       ],
       git: [
@@ -122,12 +156,54 @@ const Home: React.FC = () => {
     },
     experiences: [
       {
-        start:'2024 Jun',
+        start:'Apr 2025',
         end: 'Current',
+        company:'CJ MORE',
+        theme: '#008900',
+        position: 'Software engineer',
+        detail: 'Built and maintained internal business applications used by 1,500+ branch users nationwide.',
+        feature: [
+          'Developed and maintained enterprise web applications supporting 1,500+ branch users nationwide using React.js, Vite, Material UI, and Tailwind CSS.',
+          'Built interactive data tables with pagination, sorting, and filtering using TanStack Table, and implemented form handling and validation using React Hook Form.',
+          'Managed frontend application state, including user authentication state, loading indicators, and cached data, using Zustand.',
+          'Implemented unit tests using Vitest and end-to-end automated tests using Playwright to support application quality and reliability.',
+          'Developed RESTful APIs using Golang and PostgreSQL, including request validation, structured JSON responses, and error handling.'
+        ],
+        projects: [
+          {
+            name: 'iStudio7',
+            link: 'https://www.studio7thailand.com/en',
+            image: require('../assets/image/studio7.webp'),
+          },
+          {
+            name: 'BaNana',
+            link: '',
+            image: require('../assets/image/banana-icon.webp'),
+          },
+          {
+            name: 'iStudio7 Education',
+            link: '',
+            image: require('../assets/image/isudio-edu.webp'),
+          },
+          {
+            name: 'Backoffice',
+            link: '',
+            image: require('../assets/image/backoffice.png'),
+          },
+          {
+            name: 'Queue Management',
+            link: '',
+            image: require('../assets/image/queue.png'),
+          },
+        ],
+      },
+      {
+        start:'Jun 2024',
+        end: 'March 2025',
         company:'COM7 public company limited',
         theme: '#008900',
         position: 'Frontend Web developer',
-        detail: 'Almost using Vue(V2) for improving frontend and using PHP Laravel for backend API',
+        detail: 'Implement website for customer and back-office using Vue(V2) for improving frontend and using PHP Laravel for backend API',
         feature: [
           'studio7 - Improvement a retail website for selling IT products and Apple store',
           'Queue program - Improvement the internal management system and implementing a queue support application for customers purchasing products in-store.',
@@ -170,11 +246,9 @@ const Home: React.FC = () => {
         position: 'Frontend web developer',
         detail: 'Develop CRM Loyalty & Marketing Solutions , Rewards & Privileges Management , E-Commerce, Back-Office system using Vue.js (V3), React.js, Node.js to develop.',
         feature: [
-          'CRM web applications can login with Line , Google , Facebook.',
-          'Users can see privileges for campaigns handled by user-level and includes collecting points with Buzzebees marketplace, Line, Shopee, and Lazada platforms.',
-          'This web application also has a feature to save the history of the collected points.',
-          'User can transfer points to another platform.',
-          'Develop white-label products by creating an SDK using Vue 3 with TypeScript to make it easier for the support team to use its functions.',
+          'Implemented social login with LINE, Google, and Facebook, along with campaign and privilege management features based on user levels.',
+          'Built loyalty features for point collection, transaction history, and point transfers across Buzzebees Marketplace, LINE, Shopee, and Lazada.',
+          'Developed reusable SDK components for white-label products using Vue.js 3 and TypeScript to simplify feature integration and support.',
         ],
         projects: [
           {
