@@ -7,11 +7,11 @@ type Props = {
 
 const MainLayout: React.FC<Props> = ({ children, id }) => {
    return (
-      <div id={id} className='flex justify-center border-t '>
-         <div className='w-full max-w-[1080px]'>
+      <section id={id} data-section aria-labelledby={id ? `${id}-title` : undefined} className='scroll-mt-24 border-t border-black/10 py-16 md:py-24'>
+         <div className='w-full'>
             { children }
          </div>
-      </div>
+      </section>
    );
 };
 

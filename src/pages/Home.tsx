@@ -1,36 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import MainLayout from '../components/Layout/MainLayout.tsx';
 import Personal from '../components/Personal.tsx';
 import Skills from '../components/Skills.tsx';
 import Experience from '../components/Experience.tsx';
+import PortfolioNavigation from '../components/PortfolioNavigation.tsx';
+import SectionHeading from '../components/SectionHeading.tsx';
+import usePortfolioMotion from '../hooks/usePortfolioMotion.ts';
 
 const Home: React.FC = () => {
-  const personalRef = useRef<HTMLDivElement>(null);
-  const skillRef = useRef<HTMLDivElement>(null);
-  const experiencelRef = useRef<HTMLDivElement>(null);
-
-  const menus = [
-    {
-      name: 'Personal',
-      ref: personalRef,
-    },
-    {
-      name: 'Skill',
-      ref: skillRef,
-    },
-    {
-      name: 'Experience',
-      ref: experiencelRef,
-    },
-  ];
+  const scope = useRef<HTMLDivElement>(null);
+  const [activeSection, setActiveSection] = useState('home');
+  usePortfolioMotion(scope, setActiveSection);
   const data = {
     startYear: '2018',
-    endYear: '2025',
+    endYear: '2026',
     imageProfile: require('../assets/image/profile-me.jpg'),
-    personalSummary: 'I am a Full-Stack Web Developer / Front End Web Developer.' +
-    '<br> I have 6 years of experience as a web developer.' +
-    '<br> I have worked on developing ERP, CRM, POS, and back-office systems.' +
-    '<br> Currently, I am improving a retail website for the Apple Store.' +
+    personalSummary: 'I am a Frontend / Full-Stack Engineer with 6+ years of experience developing and maintaining enterprise web applications, CRM platforms, retail systems, and back-office solutions using React.js, Vue.js, JavaScript, and TypeScript.' +
+    '<br> I have 6+ years of experience as a web developer.' +
+    '<br> I have worked on developing ERP, CRM, POS, e-commerce and back-office systems.' +
+    '<br> Currently, I am improving a website back-office for the CJ More.' +
     '<br><br> I love to learn new techniques for software development and learn about a new framework for many platforms like the Web Front-end, API Back-end.' +
     '<br> In the future, I aspire to work as a Systems Analyst (SA) or Project Manager (PM), focusing on the overall picture and being responsible for the projects I’m managing.',
     education: {
@@ -43,6 +31,7 @@ const Home: React.FC = () => {
     nationality: 'Thai',
     birthDate: '29 Jul 1995',
     linkedin: 'https://linkedin.com/in/chenjira-khamchiang-b58b2625b',
+    linkedinIcon: require('../assets/icon/linkedin.webp'),
     github: [{
       link: '',
       projectName: '',
@@ -350,47 +339,59 @@ const Home: React.FC = () => {
     ]
   };
 
-  const scrollToSection = async (ref: React.RefObject<HTMLDivElement>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollToSection = (id: string) => {
+    const section = scope.current?.querySelector<HTMLElement>(`#${id}`);
+    section?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start',
+    });
   };
   return (
-    <div className='bg-primary px-10'>
-      <div className='flex justify-center pt-10'>
-        {menus.map((menu, i) => (
-          <button key={`menu_${i}`}
-            onClick={() => scrollToSection(menu.ref)}
-            className='bg-black text-white hover:bg-opacity-40 rounded-md py-4 w-36 text-xs ml-2'>
-            { menu.name }
-          </button>
-        ))}
-      </div>
-      <div className='h-svh flex justify-center'>
-        <div className='pt-40'>
-          <div className='border border-black p-4 rounded-32px w-36'>
-            { data.startYear} - { data.endYear}
+    <div ref={scope} className="portfolio-motion bg-primary font-sans text-[#292d28] selection:bg-[#d2e1ce]">
+      <PortfolioNavigation active={activeSection} onNavigate={scrollToSection} />
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[1160px] px-5 md:px-10">
+        <section id="home" data-section aria-labelledby="portfolio-title" className="relative flex min-h-[calc(100svh-77px)] scroll-mt-24 flex-col justify-center overflow-hidden py-20 md:py-28">
+          <div aria-hidden="true" data-hero-orbit className="pointer-events-none absolute -right-24 top-20 hidden h-80 w-80 rounded-full border border-green-2B5F44/15 lg:block">
+            <div className="absolute inset-8 rounded-full border border-green-2B5F44/15" />
+            <div className="absolute inset-16 rounded-full border border-green-2B5F44/15" />
+            <div className="absolute left-8 top-10 h-3 w-3 rounded-full bg-green-2B5F44" />
           </div>
-          <h1 className='text-8xl font-extrabold'>Portfolio</h1>
-        </div>
-      </div>
-      <MainLayout id='personal'>
-        <div ref={personalRef} className='py-16'>
+          <p data-hero-detail className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.2em] !text-green-2B5F44">
+            <span aria-hidden="true" className="h-px w-8 bg-green-2B5F44" />{data.startYear} — {data.endYear} / My journey
+          </p>
+          <h1 id="portfolio-title" className="relative !font-medium !leading-[1.04] tracking-[-0.065em]">
+            <span className="block overflow-hidden pb-3"><span data-hero-line className="block !text-[clamp(3.6rem,11vw,8rem)] !text-green-2B5F44">My Portfolio</span></span>
+          </h1>
+          <div className="relative mt-9 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <div data-hero-detail>
+              <p className="mb-2 !text-lg !text-inherit">{data.name}</p>
+              <p className="max-w-md !text-sm !leading-7">Full-Stack & Frontend Web Developer.<br />ERP, CRM, POS & retail experiences.</p>
+            </div>
+            <button data-hero-detail type="button" onClick={() => scrollToSection('personal')} className="group flex w-fit items-center gap-5 rounded-full bg-black py-3 pl-6 pr-3 text-sm text-white transition-colors duration-300 hover:bg-green-2B5F44 motion-reduce:transition-none">
+              Explore my portfolio
+              <span aria-hidden="true" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 !text-white transition-transform duration-300 group-hover:translate-y-1 motion-reduce:transform-none">↓</span>
+            </button>
+          </div>
+          <div data-hero-detail className="mt-16 flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-black/40"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-green-2B5F44" />Scroll to discover</div>
+        </section>
+        <MainLayout id="personal">
+          <SectionHeading id="personal-title" number="01" title="Personal" caption="The person behind the code" />
           <Personal data={data} />
-        </div>
-      </MainLayout>
-      <MainLayout id="skill">
-        <div ref={skillRef} className='py-16 border-t'>
-          <h1 className='pb-10'>My Skill</h1>
+          <button type="button" onClick={() => scrollToSection('skill')} className="group mt-10 flex items-center gap-4 rounded py-3 text-sm text-green-2B5F44">Explore my skills <span aria-hidden="true" className="!text-inherit transition-transform duration-300 group-hover:translate-y-1 motion-reduce:transform-none">↓</span></button>
+        </MainLayout>
+        <MainLayout id="skill">
+          <SectionHeading id="skill-title" number="02" title="My Skill" caption="Tools I build with" />
           <Skills skill={data.skill} />
-        </div>
-      </MainLayout>
-      <MainLayout id="experience">
-        <div ref={experiencelRef} className='py-16 border-t'>
-          <h1 className='pb-10 pl-4'>My Experience</h1>
+        </MainLayout>
+        <MainLayout id="experience">
+          <SectionHeading id="experience-title" number="03" title="My Experience" caption="Teams, projects & progress" />
           <Experience experiences={data.experiences} />
-        </div>
-      </MainLayout>
+        </MainLayout>
+        <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-black/10 py-8 text-xs text-black/50">
+          <div>{data.name} / Portfolio</div>
+          <button type="button" onClick={() => scrollToSection('home')} className="group rounded py-2 hover:text-green-2B5F44">Back to top <span aria-hidden="true" className="ml-2 inline-block !text-inherit transition-transform duration-300 group-hover:-translate-y-1 motion-reduce:transform-none">↑</span></button>
+        </footer>
+      </main>
     </div>
   );
 };

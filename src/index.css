@@ -25,3 +25,12 @@ p, span {
 b {
   color: black;
 }
+
+.portfolio-motion :is(button, a):focus-visible {
+  outline: 2px solid #2b5f44;
+  outline-offset: 5px;
+}
+
+.portfolio-motion p {
+  color: #62675f;
+}

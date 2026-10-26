@@ -1,46 +1,36 @@
 import React from 'react';
 
+type Skill = { name: string; imageUrl: string };
 interface SkillProps {
-  skill: any;
+  skill: Record<'frontend' | 'backend' | 'testing' | 'database' | 'git', Skill[]>;
 }
- 
 
 const Skills: React.FC<SkillProps> = ({ skill }) => {
-  const SkillItem: React.FC<{ skills: { name: string; imageUrl: string }[] }> = ({ skills }) => {
-    return (
-      <div>
-        {skills.map((skill, i) => (
-          <div className='flex pt-3' key={i}>
-            <img className='w-7' src={skill.imageUrl} alt={skill.name} />
-            <span className='pl-2 self-center'>{skill.name}</span>
-          </div>
-        ))}
-      </div>
-    );
-  };
-  
+  const groups = [
+    { title: 'Frontend', items: skill.frontend },
+    { title: 'Backend', items: skill.backend },
+    { title: 'Testing', items: skill.testing },
+    { title: 'Database', items: skill.database },
+    { title: 'Git Version Control', items: skill.git },
+  ];
+
   return (
-    <div>
-      <div className='grid grid-cols-3'>
-          <div>
-            <h3>Frontend</h3>
-            <SkillItem skills={skill.frontend} key='frontend' />
-          </div>
-          <div>
-            <h3>Backend</h3>
-            <SkillItem skills={skill.backend} key='backend' />
-
-            <h3 className='pt-4'>Database</h3>
-            <SkillItem skills={skill.database} key='database' />
-          </div>
-          <div>
-            <h3>Testing</h3>
-            <SkillItem skills={skill.testing} key='testing' />
-
-            <h3 className='pt-4'>Git Version Control</h3>
-            <SkillItem skills={skill.git} key='git' />
-          </div>
+    <div className="space-y-10">
+      {groups.map(({ title, items }) => (
+        <div key={title}>
+          <h3 data-reveal className="mb-4 !text-sm">{title}</h3>
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((item) => (
+              <li data-reveal key={item.name}>
+                <div className="group flex h-full items-center gap-4 rounded-2xl border border-black/10 bg-white/40 p-5 transition-[background-color,border-color,transform] duration-300 hover:-translate-y-1 hover:border-green-2B5F44/40 hover:bg-white/80 motion-reduce:transform-none motion-reduce:transition-none">
+                  <img width={32} height={32} className="h-8 w-8 shrink-0 object-contain transition-transform duration-300 group-hover:scale-110 motion-reduce:transform-none" src={item.imageUrl} alt="" />
+                  <span className="text-sm !text-inherit">{item.name}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
+      ))}
     </div>
   );
 };
