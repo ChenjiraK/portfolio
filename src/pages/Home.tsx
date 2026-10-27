@@ -22,7 +22,7 @@ const Home: React.FC = () => {
     '<br><br> I love to learn new techniques for software development and learn about a new framework for many platforms like the Web Front-end, API Back-end.' +
     '<br> In the future, I aspire to work as a Systems Analyst (SA) or Project Manager (PM), focusing on the overall picture and being responsible for the projects I’m managing.',
     education: {
-      university: "2014 - 2018 King Mongkut's University of Technology North Bangkok",
+      university: "2014 - 2017 King Mongkut's University of Technology North Bangkok",
       major: 'Bachelor of Science - Computer Science and Technology',
     },
     name: 'Chenjira Khamchiang',
