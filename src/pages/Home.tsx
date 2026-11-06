@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react';
-import MainLayout from '../components/Layout/MainLayout.tsx';
-import Personal from '../components/Personal.tsx';
-import Skills from '../components/Skills.tsx';
-import Experience from '../components/Experience.tsx';
-import PortfolioNavigation from '../components/PortfolioNavigation.tsx';
-import SectionHeading from '../components/SectionHeading.tsx';
-import usePortfolioMotion from '../hooks/usePortfolioMotion.ts';
+import MainLayout from '../components/Layout/MainLayout';
+import Personal from '../components/Personal';
+import Skills from '../components/Skills';
+import Experience from '../components/Experience';
+import Project from '../components/Project';
+import PortfolioNavigation from '../components/PortfolioNavigation';
+import SectionHeading from '../components/SectionHeading';
+import usePortfolioMotion from '../hooks/usePortfolioMotion';
 
 const Home: React.FC = () => {
   const scope = useRef<HTMLDivElement>(null);
@@ -161,9 +162,8 @@ const Home: React.FC = () => {
         company:'CJ MORE',
         theme: '#008900',
         position: 'Software engineer',
-        detail: 'Built and maintained internal business applications used by 1,500+ branch users nationwide.',
+        detail: 'Developed and maintained enterprise web applications supporting 1,500+ branch users nationwide. using React.js, Vite, Material UI, and Tailwind CSS. ',
         feature: [
-          'Developed and maintained enterprise web applications supporting 1,500+ branch users nationwide using React.js, Vite, Material UI, and Tailwind CSS.',
           'Built interactive data tables with pagination, sorting, and filtering using TanStack Table, and implemented form handling and validation using React Hook Form.',
           'Managed frontend application state, including user authentication state, loading indicators, and cached data, using Zustand.',
           'Implemented unit tests using Vitest and end-to-end automated tests using Playwright to support application quality and reliability.',
@@ -246,8 +246,10 @@ const Home: React.FC = () => {
         position: 'Frontend web developer',
         detail: 'Develop CRM Loyalty & Marketing Solutions , Rewards & Privileges Management , E-Commerce, Back-Office system using Vue.js (V3), React.js, Node.js to develop.',
         feature: [
-          'Implemented social login with LINE, Google, and Facebook, along with campaign and privilege management features based on user levels.',
-          'Built loyalty features for point collection, transaction history, and point transfers across Buzzebees Marketplace, LINE, Shopee, and Lazada.',
+          'Feature login with username and password, forgot password, and reset password.',
+          'Feature login with social media accounts (LINE, Google, Facebook) and manage user privileges based on their level.',
+          'Feature manage loyalty points, including point collection, transaction history, and point transfers across Buzzebees Marketplace, LINE, Shopee, and Lazada.',
+          'Feature campaign management and campaign details',
           'Developed reusable SDK components for white-label products using Vue.js 3 and TypeScript to simplify feature integration and support.',
         ],
         projects: [
@@ -386,7 +388,7 @@ const Home: React.FC = () => {
           'Feature Invoice Receipt',
           'Feature Account System',
           'Feature Human Resource (salary slip , tax , social security fund)',
-          'Feature Report Statement',
+          'Feature Statement Report',
         ],
         projects: [{
           name: 'Somboon ERP',
@@ -410,6 +412,26 @@ const Home: React.FC = () => {
         }
       ],
       },
+    ],
+    projects: [
+      {
+        name: 'Vocabulary — Vocab Challenge',
+        git: 'https://github.com/ChenjiraK/vocabulary',
+        image: [""],
+        detail: [
+          "An English vocabulary learning app where players guess words based on English definitions and Thai hints. The app saves players' answers and scores, with separate frontend and backend applications.",
+          "Frontend: React.js, Vite, Tailwind CSS, React Hook Form, Zustand, TanStack Table, Vitest, Playwright.",
+          "Backend: Golang, GIN, GORM, PostgreSQL, Docker"
+        ],
+        features: [
+          "Guess words using English definitions and Thai hints.",
+          "Save players’ answers and scores.",
+          "Register and log in with a username and password.",
+          "Log in with LINE, Google, or Facebook.",
+          "View player rankings and scores on the leaderboard.",
+          "Manage words, definitions, and hints through an admin panel, with support for importing Excel files."
+        ]
+      }
     ]
   };
 
@@ -460,6 +482,10 @@ const Home: React.FC = () => {
         <MainLayout id="experience">
           <SectionHeading id="experience-title" number="03" title="My Experience" caption="Teams, projects & progress" />
           <Experience experiences={data.experiences} />
+        </MainLayout>
+        <MainLayout id="project">
+          <SectionHeading id="experience-title" number="03" title="My Project" caption="My project implement" />
+          <Project projects={data.projects} />
         </MainLayout>
         <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-black/10 py-8 text-xs text-black/50">
           <div>{data.name} / Portfolio</div>

@@ -4,6 +4,7 @@ export const portfolioSections = [
   { id: 'personal', name: 'Personal' },
   { id: 'skill', name: 'Skill' },
   { id: 'experience', name: 'Experience' },
+  { id: 'project', name: 'Project' },
 ];
 
 const PortfolioNavigation: React.FC<{ active: string; onNavigate: (id: string) => void }> = ({ active, onNavigate }) => {

@@ -2,7 +2,6 @@
   "name": "react-apple",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
   "homepage": "https://chenjirak.github.io/portfolio",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -34,6 +33,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "serve": "npm start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "vitest",

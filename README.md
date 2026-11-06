@@ -6,8 +6,10 @@ npm install
 
 ### Start project
 ```sh
-npm run start
+npm run serve
 ```
+
+`npm start` also starts the development server. Open http://localhost:3000/portfolio/.
 
 ### unit test
 ```sh
