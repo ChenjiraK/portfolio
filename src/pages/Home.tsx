@@ -484,7 +484,7 @@ const Home: React.FC = () => {
           <Experience experiences={data.experiences} />
         </MainLayout>
         <MainLayout id="project">
-          <SectionHeading id="experience-title" number="03" title="My Project" caption="My project implement" />
+          <SectionHeading id="experience-title" number="04" title="My Project" caption="My project implement" />
           <Project projects={data.projects} />
         </MainLayout>
         <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-black/10 py-8 text-xs text-black/50">
