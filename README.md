@@ -16,8 +16,7 @@ npm run serve
 npm run test
 ```
 
-### route
-Auto Delete Todo List
+### route portfolio web
 ```sh
 https://chenjirak.github.io/portfolio/
 ```
